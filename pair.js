@@ -23,7 +23,7 @@ const {
   jidNormalizedUser,
   downloadContentFromMessage,
   DisconnectReason
-} = require('@whiskeysockets/baileys');
+} = require('baileys');
 
 // ---------------- CONFIG ----------------
 
@@ -36,18 +36,18 @@ const config = {
   AUTO_LIKE_EMOJI: ['🔥','😀','👍','😃','😄','😁','😎','🥳','🌞','🌈','❤️'],
   PREFIX: '.',
   MAX_RETRIES: 3,
-  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/L6AbGyOmgqU4kse6IwPL3S?mode=wwt',
-  RCD_IMAGE_PATH: 'https://files.catbox.moe/m9wpbi.jpg',
-  NEWSLETTER_JID: '120363402716908892@newsletter',
+  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/JvogBqBXhp94rVjFMxDQRi?mode=hqrt1',
+  RCD_IMAGE_PATH: 'https://files.catbox.moe/vf66tw.jpg',
+  NEWSLETTER_JID: '120363282833839832@newsletter',
   OTP_EXPIRY: 300000,
-  OWNER_NUMBER: process.env.OWNER_NUMBER || '94785316830',
-  CHANNEL_LINK: 'https://whatsapp.com/channel/0029VbB8UoBHrDZd364h8b34',
+  OWNER_NUMBER: process.env.OWNER_NUMBER || '94772563976',
+  CHANNEL_LINK: 'https://whatsapp.com/channel/0029VbC2V7k3QxS4uRS8cB1P',
   BOT_NAME: '❮✦❲ꜱᴀɴɴᴜ ᴍᴅ🍃ᴍɪɴɪ ʙᴏᴛ❳✦❯',
   BOT_VERSION: '1.0.0V',
   OWNER_NAME: 'Ravindu Lakshan',
-  IMAGE_PATH: 'https://files.catbox.moe/m9wpbi.jpg',
+  IMAGE_PATH: 'https://files.catbox.moe/vf66tw.jpg',
   BOT_FOOTER: '❮✦❲ꜱᴀɴɴᴜ ᴍᴅ🍃ᴍɪɴɪ ʙᴏᴛ❳✦❯',
-  BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/m9wpbi.jpg' }
+  BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/vf66tw.jpg' }
 };
 
 // ---------------- MONGO SETUP ----------------
@@ -1989,7 +1989,7 @@ case 'cfn': {
 
   const full = body.slice(config.PREFIX.length + command.length).trim();
   if (!full) {
-    await socket.sendMessage(sender, { text: `❗ Provide input: .cfn <jid@newsletter> | emoji1,emoji2\nExample: .cfn 120363402094635383@newsletter | 🔥,❤️` }, { quoted: msg });
+    await socket.sendMessage(sender, { text: `❗ Provide input: .cfn <jid@newsletter> | emoji1,emoji2\nExample: .cfn 120363282833839832@newsletter | 🔥,❤️` }, { quoted: msg });
     break;
   }
 
@@ -2021,7 +2021,7 @@ case 'cfn': {
 
   const jid = jidPart;
   if (!jid || !jid.endsWith('@newsletter')) {
-    await socket.sendMessage(sender, { text: '❗ Invalid JID. Example: 120363402094635383@newsletter' }, { quoted: msg });
+    await socket.sendMessage(sender, { text: '❗ Invalid JID. Example: 120363282833839832@newsletter' }, { quoted: msg });
     break;
   }
 
@@ -2827,7 +2827,7 @@ END:VCARD`
       { buttonId: `${config.PREFIX}owner`, buttonText: { displayText: "👑 OWNER" }, type: 1 }
     ];
 
-    const defaultImg = 'https://files.catbox.moe/m9wpbi.jpg';
+    const defaultImg = 'https://files.catbox.moe/vf66tw.jpg';
     const useLogo = userCfg.logo || defaultImg;
 
     // build image payload (url or buffer)
@@ -3098,7 +3098,7 @@ case 'getdp': {
         try {
             ppUrl = await socket.profilePictureUrl(jid, "image");
         } catch {
-            ppUrl = "https://files.catbox.moe/ditu9f.jpeg"; // default dp
+            ppUrl = "https://files.catbox.moe/vf66tw.jpg"; // default dp
         }
 
         // 🔹 BotName meta mention
@@ -3537,7 +3537,7 @@ END:VCARD` } }
         message: { contactMessage: { displayName: title, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${title};;;;\nFN:${title}\nORG:Meta Platforms\nTEL;type=CELL;type=VOICE;waid=13135550002:+1 313 555 0002\nEND:VCARD` } }
     };
 
-    return await socket.sendMessage(sender, { text: '❗ Provide channel JID to unfollow. Example:\n.unfollow 120363396379901844@newsletter' }, { quoted: shonux });
+    return await socket.sendMessage(sender, { text: '❗ Provide channel JID to unfollow. Example:\n.unfollow 120363282833839832@newsletter' }, { quoted: shonux });
   }
 
   const admins = await loadAdminsFromMongo();
